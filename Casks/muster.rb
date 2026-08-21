@@ -7,10 +7,10 @@ cask "muster" do
   desc "Local-first roster of AI agents — bring your own Claude, Codex, Grok CLI"
   homepage "https://muster.orazen.online/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
+  # No livecheck: it exists to track a real version number against
+  # upstream releases, which is meaningless for `version :latest` (the URL
+  # itself always resolves to the newest release) — `brew audit` flags the
+  # combination as a style violation.
 
   depends_on macos: :big_sur
 
